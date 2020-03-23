@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= pageTitle %></title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+    <header class="main-header">
+        <nav class="main-header__nav">
+            <ul class="main-header__item-list">
+                <li class="main-header__item"><a class="<%= path === '/' ? 'active' : '' %>" href="/">Shop</a></li>
+                <li class="main-header__item"><a class="<%= path === '/add-product' ? 'active' : '' %>" href="/add-product">Add Product</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <% if (hasProduct) { %>
+        
+         <div class="grid">
+             <% product.forEach((product)=> {%> 
+
+                <article class="card product-item">
+                    <header class="card__header">
+                        <h1 class="product__title"><%- product.name %></h1>
+                    </header>
+                    <div class="card__image">
+                        <img src=<%- product.imag %> alt="A Book">
+                    </div>
+                    <div class="card__content">
+                        <h2 class="product__price">$<%- product.price %></h2>
+                        <p class="product__description"><%- product.description %></p>
+                    </div>
+                    <div class="card__actions">
+                        <button class="btn">Add to Cart</button>
+                    </div>
+                </article>
+
+            <% }) %>
+            
+        </div> 
+    </main>
+    <% } %>
+</body>
+
+</html>
